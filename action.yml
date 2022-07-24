@@ -23,5 +23,9 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.command}}
+  env:
+    HOST: ${{ inputs.host }}
+    PORT: ${{ inputs.port }}
+    USERNAME: ${{ inputs.username }}
+    PASSWORD: ${{ inputs.password }}
+    COMMAND: ${{ inputs.command }}
