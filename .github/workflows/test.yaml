@@ -20,4 +20,4 @@ jobs:
           host: ${{ secrets.HOST}}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD}}
-          command: ${{ secrets.COMMAND}}
+          command: pwd
