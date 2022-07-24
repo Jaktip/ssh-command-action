@@ -21,6 +21,6 @@ jobs:
           host: ${{ secrets.HOST}}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD}}
-          command: pwd
+          command: /home/shared/wsg_backend/check_service_start_up_message.sh bns
       - name: Display Execut sshpass output 
         run: echo "${{ steps.execute-sshpass-command.outputs.command_execution_stdout }}"
