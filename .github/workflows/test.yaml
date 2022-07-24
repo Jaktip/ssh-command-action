@@ -15,9 +15,12 @@ jobs:
           pwd
           find .
       - name: Execute sshpass
+        id: execute-sshpass-command
         uses: ./
         with:
           host: ${{ secrets.HOST}}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD}}
           command: pwd
+      - name: Display Execut sshpass output 
+        run: echo "${{ steps.execute-sshpass-command.outputs.command_execution_stdout }}"
