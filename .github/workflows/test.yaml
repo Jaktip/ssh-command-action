@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Inspect current path
-        run: |
-          pwd
-          find .
       - name: Execute sshpass
         id: execute-sshpass-command
         uses: ./
@@ -21,6 +17,6 @@ jobs:
           host: ${{ secrets.HOST}}
           username: ${{ secrets.USERNAME}}
           password: ${{ secrets.PASSWORD}}
-          command: /home/shared/wsg_backend/check_service_start_up_message.sh bns
+          command: /home/shared/wsg_backend/check_service_start_up_message.sh ${{ secrets.MODULE}}
       - name: Display Execut sshpass output 
         run: echo "${{ steps.execute-sshpass-command.outputs.command_execution_stdout }}"
