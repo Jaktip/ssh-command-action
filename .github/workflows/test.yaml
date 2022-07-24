@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Inspect current path
+        run: |
+          pwd
+          find .
       - name: Execute sshpass
         uses: ./
         with:
