@@ -1,7 +1,12 @@
-FROM node:slim
+FROM ubuntu:18.04
 
-COPY . .
+LABEL "com.github.actions.name"="SSHPASS Github Action"
+LABEL "com.github.actions.description"="SSHPASS Github Action"
 
-RUN npm install --production
+RUN apt-get update && apt-get install -y sshpass
 
-ENTRYPOINT ["node", "/lib/main.js"]
+COPY ./entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
