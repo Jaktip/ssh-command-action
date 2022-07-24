@@ -1,0 +1,31 @@
+name: 'ssh-command-action'
+description: 'Github action for executing SSH command with the STDOUT returned as the output'
+author: 'Win'
+inputs: 
+  host:
+    description: "SSHPASS host"
+    required: true
+  port:
+    description: "SSHPASS host"
+    default: 22
+  username:
+    description: "SSHPASS username"
+    required: true
+  password:
+    description: "SSHPASS password"
+    required: true
+  command:
+    description: "command to be executed"
+    required: true     
+outputs:
+  command_execution_stdout:
+    description: "The STDOUT resulted from the command execution"           
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    HOST: ${{ inputs.host }}
+    PORT: ${{ inputs.port }}
+    USERNAME: ${{ inputs.username }}
+    PASSWORD: ${{ inputs.password }}
+    COMMAND: ${{ inputs.command }}
