@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 # RUN eval "$(ssh-agent -s)"
 
-RUN mkdir -p ~/.ssh && chmod 777 ~/.ssh
+# RUN mkdir -p ~/.ssh && chmod 777 ~/.ssh
 
 COPY entrypoint.sh /entrypoint.sh
 
