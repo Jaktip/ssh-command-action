@@ -1,9 +1,14 @@
 #!/bin/bash
 
-echo $PRIVATE_KEY > ~/.ssh/id_rsa 
-echo $KNOWN_HOSTS > ~/.ssh/known_hosts
+echo $PRIVATE_KEY > /id_rsa 
 
-ls ~/.ssh
+ssh-add /id_rsa 
+
+# echo $KNOWN_HOSTS > ~/.ssh/known_hosts
+
+ssh-add -l
+
+# ls ~/.ssh
 
 commandStdout=$(ssh $PORT $USERNAME@$HOST "$COMMAND")
 
