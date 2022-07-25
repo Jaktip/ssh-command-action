@@ -1,20 +1,12 @@
 #!/bin/bash
 
-eval "$(ssh-agent -s)"
 
-echo $PRIVATE_KEY > /id_rsa && chmod 700 /id_rsa
+echo $PRIVATE_KEY > ~/.ssh/id_rsa 
+echo $KNOWN_HOSTS > ~/.ssh/known_hosts
 
-cat /id_rsa
+commandStdout=$(ssh -p $PORT $USERNAME@$HOST "$COMMAND")
 
-ssh-add /id_rsa 
-
-# echo $KNOWN_HOSTS > ~/.ssh/known_hosts
-
-ssh-add -l
-
-# ls ~/.ssh
-
-commandStdout=$(ssh $PORT $USERNAME@$HOST "$COMMAND")
+echo $commandStdout
 
 echo "::set-output name=command_execution_stdout::$commandStdout"
 
