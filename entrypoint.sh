@@ -1,5 +1,7 @@
 #!/bin/bash
 
+eval "$(ssh-agent -s)"
+
 echo $PRIVATE_KEY > /id_rsa 
 
 ssh-add /id_rsa 
