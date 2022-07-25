@@ -1,10 +1,9 @@
 #!/bin/bash
 
-export SSHPASS=$PASSWORD
+echo $PRIVATE_KEY > ~/.ssh/id_rsa 
+echo $KNOWN_HOSTS > ~/.ssh/known_hosts
 
-commandStdout=$(sshpass -e ssh -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST "$COMMAND")
-
-echo "::debug::COMMAND is $COMMAND"
+commandStdout=$(ssh-p $PORT $USERNAME@$HOST "$COMMAND")
 
 echo "::set-output name=command_execution_stdout::$commandStdout"
 
