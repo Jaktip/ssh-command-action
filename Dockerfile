@@ -6,6 +6,8 @@ LABEL "com.github.actions.description"="SSH Github Action"
 RUN apt-get update && \
     apt-get install -y openssh-client
 
+RUN eval "$(ssh-agent -s)"
+
 RUN mkdir -p ~/.ssh && chmod 777 ~/.ssh
 
 COPY entrypoint.sh /entrypoint.sh
