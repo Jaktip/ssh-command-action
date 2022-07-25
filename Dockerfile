@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 LABEL "com.github.actions.name"="SSH Github Action"
 LABEL "com.github.actions.description"="SSH Github Action"
 
-RUN mkdir -p ~/.ssh && chmod 700 ~/.ssh
+RUN mkdir -p ~/.ssh && chmod 777 ~/.ssh
 
 COPY entrypoint.sh /entrypoint.sh
 
