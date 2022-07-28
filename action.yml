@@ -1,5 +1,6 @@
 name: "ssh-command-action"
 description: "Github action for executing SSH command with the STDOUT returned as the output"
+
 author: "Win"
 inputs:
   host:
@@ -11,17 +12,11 @@ inputs:
   username:
     description: "SSHPASS username"
     required: true
-  password:
-    description: "SSHPASS password"
-    required: true
   command:
     description: "command to be executed"
     required: true
   ssh_private_key:
     description: "private key to set up Public Key Authentication with SSH"
-    required: true
-  known_hosts:
-    description: "known host to set up Public Key Authentication with SSH"
     required: true
 outputs:
   command_execution_stdout:
@@ -33,6 +28,5 @@ runs:
     HOST: ${{ inputs.host }}
     PORT: ${{ inputs.port }}
     USERNAME: ${{ inputs.username }}
-    PASSWORD: ${{ inputs.password }}
     COMMAND: ${{ inputs.command }}
     SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
