@@ -17,7 +17,7 @@ inputs:
   command:
     description: "command to be executed"
     required: true
-  private_key:
+  ssh_private_key:
     description: "private key to set up Public Key Authentication with SSH"
     required: true
   known_hosts:
@@ -35,5 +35,4 @@ runs:
     USERNAME: ${{ inputs.username }}
     PASSWORD: ${{ inputs.password }}
     COMMAND: ${{ inputs.command }}
-    PRIVATE_KEY: ${{ inputs.private_key }}
-    KNOWN_HOSTS: ${{ inputs.known_hosts }}
+    SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
