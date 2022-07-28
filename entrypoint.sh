@@ -3,7 +3,7 @@
 
 mkdir "/root/.ssh"
 
-echo "$SSH_PRIVATE_KEY" > "/root/.ssh/id_rsa"
+echo $SSH_PRIVATE_KEY > "/root/.ssh/id_rsa"
 chmod 400 "/root/.ssh/id_rsa"
 
 echo "Host *" > "/root/.ssh/config"
