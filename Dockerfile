@@ -5,7 +5,7 @@ LABEL "com.github.actions.description"="SSHPASS Github Action"
 
 RUN apt-get update && apt-get install -y sshpass
 
-COPY ./entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 

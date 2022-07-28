@@ -1,10 +1,18 @@
 #!/bin/bash
 
-export SSHPASS=$PASSWORD
+echo $PRIVATE_KEY > ~/.ssh/id_rsa
+echo $KNOWN_HOSTS > ~/.ssh/known_hosts
 
-commandStdout=$(sshpass -e ssh -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST "$COMMAND")
+mkdir "/root/.ssh"
 
-echo "::debug::COMMAND is $COMMAND"
+echo "$SSH_PRIVATE_KEY" > "/root/.ssh/id_rsa"
+chmod 400 "/root/.ssh/id_rsa"
+
+echo "Host *" > "/root/.ssh/config"
+echo "  AddKeysToAgent yes" >> "/root/.ssh/config"
+echo "  IdentityFile /root/.ssh/id_rsa" >> "/root/.ssh/config"
+
+commandStdout=$(sshpass ssh -v -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST "$COMMAND")
 
 echo "::set-output name=command_execution_stdout::$commandStdout"
 
