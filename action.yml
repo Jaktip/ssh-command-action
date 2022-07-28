@@ -11,17 +11,11 @@ inputs:
   username:
     description: "SSHPASS username"
     required: true
-  password:
-    description: "SSHPASS password"
-    required: true
   command:
     description: "command to be executed"
     required: true
-  private_key:
+  ssh_private_key:
     description: "private key to set up Public Key Authentication with SSH"
-    required: true
-  known_hosts:
-    description: "known host to set up Public Key Authentication with SSH"
     required: true
 outputs:
   command_execution_stdout:
@@ -33,7 +27,5 @@ runs:
     HOST: ${{ inputs.host }}
     PORT: ${{ inputs.port }}
     USERNAME: ${{ inputs.username }}
-    PASSWORD: ${{ inputs.password }}
     COMMAND: ${{ inputs.command }}
-    PRIVATE_KEY: ${{ inputs.private_key }}
-    KNOWN_HOSTS: ${{ inputs.known_hosts }}
+    SSH_PRIVATE_KEY: ${{ inputs.private_key }}
