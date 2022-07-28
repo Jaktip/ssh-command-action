@@ -28,4 +28,4 @@ runs:
     PORT: ${{ inputs.port }}
     USERNAME: ${{ inputs.username }}
     COMMAND: ${{ inputs.command }}
-    SSH_PRIVATE_KEY: ${{ inputs.private_key }}
+    SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
